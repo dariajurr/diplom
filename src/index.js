@@ -68,4 +68,19 @@ slider(".gallery-slider", ".gallery-slider .slide", ".slider-dots", 1500);
 
 //калькулятор
 
-calc();
+calc('ТЕЛО2020', {
+  club1: {
+    name: 'mozaika',
+    1: 1999,
+    6: 9900,
+    9: 13900,
+    12: 19900
+  },
+  club2: {
+    name: 'schelkovo',
+    1: 2999,
+    6: 14900,
+    9: 21900,
+    12: 24900
+  }
+});
