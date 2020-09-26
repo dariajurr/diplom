@@ -8,6 +8,7 @@ import popup from './modules/popup';
 import popupMenu from './modules/popupMenu';
 import sendForm from './modules/sendForm';
 import slider from './modules/slider';
+import calc from './modules/calc';
 
 //выпадашка клуб
 dropdown();
@@ -64,3 +65,7 @@ carousel.init();
 //слайдер
 slider(".main-slider", ".main-slider .slide", false, 3000);
 slider(".gallery-slider", ".gallery-slider .slide", ".slider-dots", 1500);
+
+//калькулятор
+
+calc();
