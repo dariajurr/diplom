@@ -6,33 +6,34 @@ import dropdown from './modules/dropdown';
 import fixedMenu from './modules/fixedMenu';
 import popup from './modules/popup';
 import popupMenu from './modules/popupMenu';
-import sendForm from './modules/sendForm';
+//import sendForm from './modules/sendForm';
+import send from './modules/send';
 import slider from './modules/slider';
 import calc from './modules/calc';
+import mask from './modules/mask';
 
 //выпадашка клуб
 dropdown();
 
 // popup
-popup("div#free_visit_form", ".free-visit", "", ".overlay", ".close_icon");
-popup("div#callback_form", ".callback-btn", "", ".overlay", ".close_icon");
+popup("#free_visit_form", ".free-visit", false, ".overlay", ".close_icon");
+popup("#callback_form", ".callback-btn", false, ".overlay", ".close_icon");
 popup("#gift", ".fixed-gift", true, ".overlay", ".close_icon", ".close-btn");
+popup("#thanks", false, false, ".overlay", ".close_icon", ".close-btn");
 
 //sendForm
-sendForm();
+//sendForm();
+send();
+
 
 //popup menu
 popupMenu();
 
-
 //кнопка наверх
 btnToTop();
 
-
-
 //прилипающее меню
 fixedMenu();
-
 
 //карусель 
 const carousel = new SliderCarousel({
@@ -84,3 +85,6 @@ calc('ТЕЛО2020', {
     12: 24900
   }
 });
+
+//маска телефона
+mask();

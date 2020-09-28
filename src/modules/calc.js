@@ -11,43 +11,47 @@ const calc = (promo, {
     ["one", club1],
     ["two", club2],
   ]);
+  if (calcBlock && cardTypes && clubNames && promoInput && priceTotal) {
+    const getChecked = (arr) => {
+      let i;
+      arr.forEach((element) => {
+        if (element.checked) {
+          i = element;
+        }
+      });
+      return i;
+    };
 
-  const getChecked = (arr) => {
-    let i;
-    arr.forEach((element) => {
-      if (element.checked) {
-        i = element;
+    const countSum = () => {
+      const cardType = getChecked(cardTypes).value;
+      const clubName = getChecked(clubNames).value;
+      let total;
+
+      clubs.forEach((element) => {
+        if (element.name === clubName) {
+          total = element[cardType];
+        }
+        if (promoInput.value.trim() === promo) {
+          total -= total * 0.3;
+        }
+
+      });
+      priceTotal.textContent = Math.ceil(total);
+
+    };
+
+    calcBlock.addEventListener("input", (event) => {
+      const target = event.target;
+      if (target.matches("input") || target.matches('[placeholder="Промокод"]')) {
+        countSum();
       }
     });
-    return i;
-  };
 
-  const countSum = () => {
-    const cardType = getChecked(cardTypes).value;
-    const clubName = getChecked(clubNames).value;
-    let total;
+    countSum();
+  } else {
+    return;
+  }
 
-    clubs.forEach((element) => {
-      if (element.name === clubName) {
-        total = element[cardType];
-      }
-      if (promoInput.value.trim() === promo) {
-        total -= total * 0.3;
-      }
-
-    });
-    priceTotal.textContent = Math.ceil(total);
-
-  };
-
-  calcBlock.addEventListener("input", (event) => {
-    const target = event.target;
-    if (target.matches("input") || target.matches('[placeholder="Промокод"]')) {
-      countSum();
-    }
-  });
-
-  countSum();
 };
 
 export default calc;

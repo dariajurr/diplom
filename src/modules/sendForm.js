@@ -7,7 +7,7 @@ const sendForm = () => {
 
   document.body.addEventListener("input", (event) => {
     if (event.target.matches("[name='phone']")) {
-      event.target.value = event.target.value.replace(/^(8|\+7)(\d{11})/, "");
+      //event.target.value = event.target.value.replace(/^(8|\+7)(\d{11})/, "");
     }
     if (
       event.target.name === "user_name" ||
