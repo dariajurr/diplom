@@ -11,7 +11,11 @@ const calc = (promo, {
     ["one", club1],
     ["two", club2],
   ]);
+
+
+
   if (calcBlock && cardTypes && clubNames && promoInput && priceTotal) {
+    priceTotal.textContent = clubs.get('one')[1];
     const getChecked = (arr) => {
       let i;
       arr.forEach((element) => {
@@ -31,11 +35,12 @@ const calc = (promo, {
         if (element.name === clubName) {
           total = element[cardType];
         }
-        if (promoInput.value.trim() === promo) {
-          total -= total * 0.3;
-        }
-
       });
+
+      if (promoInput.value.trim() === promo) {
+        total -= total * 0.3;
+      }
+
       priceTotal.textContent = Math.ceil(total);
 
     };
@@ -48,8 +53,6 @@ const calc = (promo, {
     });
 
     countSum();
-  } else {
-    return;
   }
 
 };

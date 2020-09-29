@@ -1,4 +1,5 @@
 const mask = () => {
+
   document.body.addEventListener('click', (event) => {
     const target = event.target;
 
@@ -10,8 +11,8 @@ const mask = () => {
   document.body.addEventListener('input', (event) => {
     const target = event.target;
     if (target.matches('[type = "tel"]')) {
-      if (!/\d/.test(target) || target.value.length > 11) {
-
+      target.value = target.value.replace(/[^0-9\+]/, '');
+      if (target.value.length > 11) {
         target.value = target.value.substring(0, 12);
       }
     }
@@ -19,6 +20,7 @@ const mask = () => {
       target.value = target.value.replace(/[^а-я\s]/ig, "");
     }
   });
+
 
 };
 

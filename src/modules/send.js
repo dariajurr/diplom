@@ -1,3 +1,5 @@
+import calc from './calc';
+
 const send = () => {
   const errorMessage = "Произошла ошибка. Попробуйте перезагрузить страницу или оставить заявку позже";
   const loadMessage = "Отправка...";
@@ -12,6 +14,7 @@ const send = () => {
   document.body.addEventListener("submit", (event) => {
     event.preventDefault();
     const target = event.target;
+
 
     if (target.closest('[method="post"]')) {
       target.append(statusMessage);
@@ -60,8 +63,26 @@ const send = () => {
         if (target.closest('.popup')) {
           target.closest('.popup').style.display = 'none';
         }
-        target.reset();
 
+        target.reset();
+        if (target.closest('.card_order_main')) {
+          calc('ТЕЛО2020', {
+            club1: {
+              name: 'mozaika',
+              1: 1999,
+              6: 9900,
+              9: 13900,
+              12: 19900
+            },
+            club2: {
+              name: 'schelkovo',
+              1: 2999,
+              6: 14900,
+              9: 21900,
+              12: 24900
+            }
+          }); ///!!!!!!!!!!!!!!!!!!!!!!!!!!
+        }
       });
       request.open('POST', './server.php');
       request.setRequestHeader('Content-type', 'application/json');

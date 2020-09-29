@@ -6,7 +6,7 @@ const dropdown = () => {
     const target = event.target;
     if (target.closest(".club-select") && clubList.style.display !== "block") {
       clubList.style.display = "block";
-    } else {
+    } else if (!target.closest(".clubs-list ul") || target.closest(".clubs-list ul a")) {
       clubList.style.display = "none";
     }
   });
